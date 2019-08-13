@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        /* ul {
+            list-style-type: toggle(disk, circle, square, box);
+        } */
+        ul {
+            list-style-type: disk;
+        }
+
+        li>ul {
+            list-style-type: toggle(disk, circle, square, box);
+        }
+
+        em {
+            font-style: toggle(italic, normal);
+        }
+
+        .test {
+            width: calc(100% - 500px);
+            background: #eee;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li class="item1"><a href="http://"><em>这是第1个选项</em></a></li>
+        <li class="item2"><a href="http://"><em>这是第2个选项</em></a></li>
+        <li class="item3"><a href="http://"><em>这是第3个选项</em></a></li>
+        <li class="item4"><a href="http://"><em>这是第4个选项</em></a></li>
+        <li class="item5"><a href="http://"><em>这是第5个选项</em></a></li>
+    </ul>
+    <ul>
+        <li>这是第1个选项</li>
+        <li>这是第2个选项</li>
+        <li>这是第3个选项</li>
+        <li>这是第4个选项</li>
+        <li>这是第5个选项</li>
+    </ul>
+
+    <em>测试强化效果1</em>
+    <em>测试强化效果2</em>
+
+    <div class="test">我的宽度为100% - 500px</div>
+
+</body>
+
+</html>

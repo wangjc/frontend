@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+  <meta charset="utf-8" />
+  <title>2D transform_CSS参考手册_web前端开发参考手册系列</title>
+  <meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com, www.doyoe.com" />
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      margin: 100px auto;
+      position: relative;
+      transition: 5s all ease;
+      transform-style: preserve-3d;
+      transform: perspective(600px) rotateX(0deg) rotateY(0deg)
+    }
+
+    .box:active {
+      transform: perspective(600px) rotateX(360deg) rotateY(360deg)
+    }
+
+    .box div {
+      height: 198px;
+      width: 198px;
+      border: 1px solid black;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: rgba(0, 255, 0, 0.5);
+    }
+
+    .box .front {
+      transform: translateZ(100px)
+    }
+
+    .box .back {
+      transform: translateZ(-100px)
+    }
+
+    .box .left {
+      transform: rotateY(90deg) translateZ(100px)
+    }
+
+    .box .right {
+      transform: rotateY(90deg) translateZ(-100px)
+    }
+
+    .box .up {
+      transform: rotateX(90deg) translateZ(100px)
+    }
+
+    .box .down {
+      transform: rotateX(90deg) translateZ(-100px)
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="front">前</div>
+    <div class="back">后</div>
+    <div class="left">左</div>
+    <div class="right">右</div>
+    <div class="up">上</div>
+    <div class="down">下</div>
+  </div>
+</body>
+
+</html>

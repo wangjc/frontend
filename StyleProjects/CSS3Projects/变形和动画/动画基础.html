@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    @keyframes test {
+      0% {
+        height: 200px;
+        width: 200px;
+        border: 1px solid black;
+      }
+
+      25% {
+        width: 400px;
+        height: 200px;
+      }
+
+      50% {
+        width: 400px;
+        height: 200px;
+        background-color: red;
+      }
+
+      75% {
+        width: 400px;
+        height: 200px;
+        font-size: 50px;
+      }
+
+      100% {
+        width: 400px;
+        height: 400px;
+      }
+    }
+
+    /* .box {height:200px;width:200px;border:1px solid black;transition: 1s all ease} */
+    .box {
+      height: 200px;
+      width: 200px;
+      border: 1px solid black
+    }
+
+    /* .box:hover {animation:test 2s ease;} */
+    .myAnimate {
+      animation: test 2s ease;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <div class="box">测试transition动画</div> -->
+  <div class="box" onclick="this.className='box myAnimate'">测试animation动画</div>
+  <p>通过js添加动画样式类，实现动画</p>
+  <script>
+    document.getElementsByTagName('p')[0].addEventListener('click', function () {
+      alert('我在这里');
+      this.className = "box myAnimate"
+    })
+  </script>
+</body>
+
+</html>

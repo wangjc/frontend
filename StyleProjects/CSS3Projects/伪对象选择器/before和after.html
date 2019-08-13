@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="utf-8" />
+    <title>E::before_CSS参考手册_web前端开发参考手册系列</title>
+    <meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com, www.doyoe.com" />
+    <style>
+        .x {
+            color: rgb(7, 7, 7);
+            font-size: 14px;
+            font-size: 0\9;
+            *font-size: 14px;
+        }
+
+        .x:before {
+            background: #fff;
+            color: rgb(33, 150, 3);
+            content: "你的浏览器支持E::before";
+            font-size: 14px;
+        }
+
+        .x:after {
+            background: #fff;
+            color: rgb(252, 4, 4);
+            content: "你的浏览器支持E::after";
+            font-size: 14px;
+        }
+
+        #poem:before {
+            content: '最是那一低头的温柔，';
+        }
+
+        #poem:after {
+            content: '不胜凉风的娇羞。';
+        }
+    </style>
+</head>
+
+<body>
+    <p class="x">基准对象</p>
+
+    <p id="poem">像一朵水莲花，</p>
+</body>
+
+</html>

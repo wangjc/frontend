@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+  <meta charset="utf-8" />
+  <title>2D transform_CSS参考手册_web前端开发参考手册系列</title>
+  <meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com, www.doyoe.com" />
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      margin: 100px auto;
+      border: 1px solid black;
+      transition: 1s all ease;
+      /* transform: perspective(600px) rotateY(0deg) */
+      transform: perspective(600px) translateY(0)
+    }
+
+    .box:active {
+      /* transform: rotateY(80deg) */
+      transform: translateY(100px)
+    }
+
+    /* .rotateX {
+      transform: perspective(600px) rotateZ(80deg)
+    } */
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <!-- 变换：rotate -->
+    变换：translateX
+  </div>
+  <!-- <script>
+    document.getElementsByClassName('box')[0].addEventListener('click', function () {
+      this.className = "box rotateX" //也可以
+    })
+  </script> -->
+</body>
+
+</html>

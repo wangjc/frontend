@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      #MyDIV {
+          border:15px solid transparent;
+          width:250px;
+          padding:10px 20px;
+          border-image:url(images/border.png) 30 30 round;
+        }
+      #myDiv2 {
+        border:10px solid transparent;
+        width:40px;
+        padding:5px 10px;
+        -moz-border-image: url(images/border_image_button.png) 0 14 0 14 stretch; /* 老版本的 Firefox */
+        -webkit-border-image: url(images/border_image_button.png) 0 14 0 14 stretch; /* Safari */
+        -o-border-image: url(images/border_image_button.png) 0 14 0 14 stretch; /* Opera */
+        border-image: url(images/border_image_button.png) 0 14 0 14 stretch/1px 5px;
+      }
+      #myDiv3 {
+        width:100px;
+        padding:5px 10px;
+        border-image:url(images/border_image_button.png) 18/5px 18 18 18/10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="MyDIV">
+
+    </div>
+    <p><b>注释：</b>Internet Explorer 不支持 border-image 属性。</p>
+
+    <div id="myDiv2">Search</div>
+
+    <p>这是我们使用的图片：</p>
+    <img src="images/border_image_button.png">
+    <div id="myDiv3">搜索按钮</div>
+
+  </body>
+</html>

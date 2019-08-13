@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>类选择器、伪类选择器、伪元素选择器</title>
+		<style type="text/css">
+			p.left {
+				color:red;
+			}
+			p .left {color:greenyellow;}
+			p.right {
+				color:cadetblue;
+			}
+			p#presto:before {
+				content:"###";color:fuchsia;
+			}
+			p#presto:first-line {
+				background-color: #5F9EA0;
+			}
+			p#presto:first-letter {color:deepskyblue;}
+			:root {
+				background-color: gold;
+			}
+			ul :not(li.active) {background-color:green;}
+			:target {background-color: black;color: white;}
+		</style>
+	</head>
+	<body>
+		<h1 class="adc">类选择器用法</h1>
+		<p class="left">left效果<span class="left">这个left如何选择？</span></p>
+		<p class="right">right效果</p>
+		
+		<h1>伪类选择器用法</h1>
+		<a href="index.htl">a:link,a:hover,a:visited,a:active等老生常谈</a>
+		
+		<h1>伪元素选择器用法 ater\before\first-line\first-letter</h1>
+		<p id="presto">测试段落文字，不知道中文有没有随机生成的工具。<br/>这是第二段的罗列，相信不会陌生的......</p>
+	
+		<h1>结构性伪类选择器用法\root\not\empty\target</h1>
+		<ul id="myUl" name='goodscon'>
+			<li class="myli active">商品1</li>
+			<li class="myli">商品2</li>
+			<li class="myli">商品3</li>
+			<li class="myli">商品4</li>
+			<li class="myli">商品5</li>
+		</ul>
+		<a href="#A">1</a> <a href="#B">2</a> <a href="#C">3</a>
+		<div id="A"><h1>1</h1><p>这是不对劲扩散到售楼处</p></div>
+		<div id="B"><h1>2</h1><p>这是不对劲扩散到售楼处</p></div>
+		<div id="C"><h1>3</h1><p>这是不对劲扩散到售楼处</p></div>
+	</body>
+</html>

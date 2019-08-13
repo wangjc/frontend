@@ -1,0 +1,96 @@
+// 声明 detached 规则集合
+//@detached-ruleset: { background: red; };
+//我认为更像，定义混合型变量。
+// 使用 detached 规则集合
+//.top {
+//  @detached-ruleset();  //我以为，不应该看起来又像函数了！！
+//}
+//编译结果为：
+
+//.top {
+//background: red;
+//}
+//调用时分离（detached）规则集合后面的圆括号是必须的， @detached-ruleset; 这样调用是无效的。
+
+//.desktop-and-old-ie(@rules) {
+//@media screen and (min-width: 1200) { @rules(); }
+//html.lt-ie9 &                       { @rules(); }
+//}
+//
+//header {
+//background-color: blue;
+//.desktop-and-old-ie({
+//  background-color: red;
+//});
+//}
+////这里的desktop-and-old-ie mixin定义了媒体查询和祖先类，因此你可以使用mixin来包装一段代码。上面这段代码会输出：
+//header {
+//background-color: blue;
+//}
+//@media screen and (min-width: 1200) {
+//header {  //太晦涩了，如何有这个header的？
+//  background-color: red;
+//}
+//}
+//html.lt-ie9 header {
+//background-color: red;
+//}
+
+//========
+//@my-ruleset-1: {
+//  .my-selector {
+//    background-color: black;
+//  }
+//};
+//.wjc {
+//    @my-ruleset-1();
+//}
+////你甚至可以利用 媒体查询 media query bubbling, for instance
+//
+//@my-ruleset: {
+//  .my-selector {
+//    @media tv {
+//      background-color: black;
+//    }
+//  }
+//};
+//@media (orientation:portrait) {
+//  @my-ruleset();
+//}
+//它将输出：
+//
+//@media (orientation: portrait) and tv {
+//.my-selector {
+//  background-color: black;
+//}
+//}
+//======
+//// 带有mixin的分离规则集合
+//@detached-ruleset: { 
+//  .mixin() {
+//      color:blue;
+//  }
+//};
+//// 调用分离规则集合
+//.caller {
+//  @detached-ruleset(); 
+//  .mixin();
+//}
+////结果:
+//
+//.caller {
+//color: blue;
+//}
+//==========
+//私有变量:
+@mycolor: yellow; //全局变量:
+@detached-ruleset: { 
+    @color:blue; // 私有变量
+    .my-selector {
+    background-color: @color;}
+};
+.caller {
+    @detached-ruleset();
+    color: @color; // 语法错误
+    color: @mycolor; // 语法错误
+}

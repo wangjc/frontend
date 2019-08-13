@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			[name*='con'] {
+				border: 1px red solid;
+			}
+			[id^='para'] {
+				background-color: palevioletred;
+			}
+			[class$='active'] {
+				background-color: cornflowerblue;
+			}
+			[title|='测试'] {background-color:cyan;}
+		</style>
+	</head>
+	<body>
+		<div id="d1" name="con" onclick="javascript:confirm('see you');">
+			<p id="para">父容器</p>
+			<div id="d2" name="con1" onclik="javascconript:alert('hello');">
+				<p id="para1">子容器</p>
+				<ul id="myUl" name='goodscon'>
+					<li class="myli active">商品1</li>
+					<li title="wps测试" class="myli">商品2</li>
+					<li title="测试-wps"class="myli">商品3</li>
+					<li title="word测试" class="myli">商品4</li>
+					<li title="测试-word" class="myli">商品5</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

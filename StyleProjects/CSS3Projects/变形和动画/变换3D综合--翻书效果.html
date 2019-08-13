@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+  <meta charset="utf-8" />
+  <title>2D transform_CSS参考手册_web前端开发参考手册系列</title>
+  <meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com, www.doyoe.com" />
+  <style>
+    .box {
+      width: 600px;
+      height: 500px;
+      margin: 100px auto;
+      position: relative;
+      transform-style: preserve-3d;
+      transform: perspective(600px) rotateY(0deg) rotateX(70deg)
+    }
+
+    .box .page {
+      box-sizing: border-box;
+      padding: 20px;
+      height: 500px;
+      width: 300px;
+      border: 1px solid black;
+      position: absolute;
+      top: 0;
+      background: rgba(0, 255, 0, 0.5);
+    }
+
+    .page1 {
+      left: 0;
+    }
+
+    .container {
+      height: 500px;
+      width: 300px;
+      position: absolute;
+      left: 50%;
+      transform-style: preserve-3d;
+      transform-origin: left;
+      transform: rotateY(0);
+      transition: 1s all ease;
+    }
+
+    .page3 {
+      right: 0;
+    }
+
+    .box:active .container {
+      transform: rotateY(-180deg);
+      /* transform: perspective(600px) rotateY(-180deg) */
+      /*加了perspective(600px) 方向失控*/
+    }
+
+    .container .front {
+      transform: translateZ(1px);
+      backface-visibility: hidden;
+    }
+
+    .container .back {
+      transform: translateZ(-1px) scaleX(-1);
+      /* backface-visibility: hidden; */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="page page1">
+      去年@Erik Jung写了一篇文章来介绍CSS4
+      Color特性，那时并没有花时间去探讨其具体的使用方式，只是略知他能让你基于某个颜色，添加调节参数，得到新的颜色。由于其还是Color的新特性，所以目前如果不依赖于其他的手段，你在浏览器里是看不到效果的。当然也有非常出色的工程师，比如@Ahmad
+      Shadeed写的一篇文章中，使用rgba()模拟出color-mod()函数的特性。著作权归作者所有。
+      商业转载请联系作者获得授权,非商业转载请注明出处。
+      原文: https://www.w3cplus.com/css4/color-mod.html © w3cplus.com
+    </div>
+    <div class="container">
+      <div class="page front">
+        特别声明，其实并没有什么CSS4一说，其只是Level 4的一种简称，比如这里所说的CSS4 Color，其实就是指CSS Color Module Level
+        4。为了好记，所以说是CSS4。有关于这方面的具体解释可以阅读《为什么没有CSS4：关于CSS等级的解释》一文。著作权归作者所有。
+        商业转载请联系作者获得授权,非商业转载请注明出处。
+        原文: https://www.w3cplus.com/css4/color-mod.html © w3cplus.com
+      </div>
+      <div class="page back">
+        这篇文章接下来要说的就是CSS Color Module Level
+        4中的color-mod。在具体介绍它之前，我们先简单的看看下面的录屏效果。通过ColorMe，基于#29B4F0颜色，调整不同的参数得出的颜色效果：著作权归作者所有。
+        商业转载请联系作者获得授权,非商业转载请注明出处。
+        原文: https://www.w3cplus.com/css4/color-mod.html © w3cplus.com
+      </div>
+    </div>
+    <div class="page page3">
+      Tooltips大家很多时候也将其称为提示框，另外还有一个视觉上长得和Tooltips的组件，常常称为Popovers（又名弹窗）。很多时候他们在视觉上长得非常类似，但是共交互上却有明显性的差异，特别是在PC端上：Tooltips一般是通过鼠标的悬浮来触发；Popovers一般是通过点击来触，但在移动端上两者都是通过点击来触发，因为移动端上悬浮的交互行为基本是不存在的。不过我们今天要聊的不是他们的交互行为，而是来看看如何以最好的方式来还原他们的视觉效果，并且能适用各种不同的UI风格。著作权归作者所有。
+      商业转载请联系作者获得授权,非商业转载请注明出处。
+      原文: https://www.w3cplus.com/CSS3 © w3cplus.com
+    </div>
+  </div>
+</body>
+
+</html>

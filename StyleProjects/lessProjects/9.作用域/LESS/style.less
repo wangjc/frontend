@@ -1,0 +1,90 @@
+//@clolor:#ffffff;
+//
+//.bgcolor{
+//width: 50px;
+//a{
+//  color: @clolor;
+//}
+//}
+//
+//@clolor:#ff0000;
+
+//@variable: global;
+//@detached-ruleset: {
+//// 将使用全局变量，因为他是访问形式定义的分离规则集合
+//variable: @variable; 
+//};
+//
+//selector {
+//@detached-ruleset();
+//@variable: value; // 在调用者内部定义的变量 - 将被忽略
+//}
+//selector {
+//variable: global;
+//}
+//@detached-ruleset: {
+//caller-variable: @callerVariable; // 这里变量是 undefined
+//.callerMixin(); // 这里混合是 undefined 
+//};
+//
+//selector {
+//// 使用分离规则集合
+//@detached-ruleset(); 
+//
+//// 需要在分离规则集合内定义变量和混合
+//@callerVariable: value;
+//.callerMixin() {
+//  variable: declaration;
+//}
+//}
+//编译后的结果:
+//
+//selector {
+//caller-variable: value;
+//variable: declaration;
+//}
+
+//Referencing Won't Modify Detached Ruleset Scope
+
+//A ruleset does not gain access to new scopes just by being referenced there:
+
+@detached-1: { scope-detached: @one @two; };
+.one {
+  @one: visible;
+  .two {
+    @detached-2: @detached-1; // copying/renaming ruleset 
+    @two: visible; // ruleset can not see this variable
+  }
+}
+
+.use-place {
+  .one > .two(); 
+  @detached-2();
+}
+//throws an error:
+//
+//ERROR 1:32 The variable "@one" was not declared.
+//Unlocking Will Modify Detached Ruleset Scope
+//
+//A detached ruleset gains access by being unlocked (imported) inside a scope:
+
+#space {
+  .importer-1() {
+    @detached: { scope-detached: @variable; }; // define detached ruleset
+  }
+}
+
+.importer-2() {
+  @variable: value; // unlocked detached ruleset CAN see this variable
+  #space > .importer-1(); // unlock/import detached ruleset
+}
+
+.use-place {
+  .importer-2(); // unlock/import detached ruleset second time
+   @detached();
+}
+//compiles into:
+
+.use-place {
+  scope-detached: value;
+}

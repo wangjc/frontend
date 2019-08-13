@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      background: #9acd32;
+    }
+
+    .a {
+      position: absolute;
+      left: 50px;
+      top: 50px;
+    }
+
+    .pfix {
+      /* position: fixed; */
+      width: 200px;
+      height: 200px;
+      background: rgb(93, 178, 248);
+    }
+
+    .b {
+      position: fixed;
+      left: 50px;
+      top: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <button type="button">按钮</button>
+  <input type="button" name="" value="按钮" /> -->
+  <div class="box">
+    <div class="a">
+      测试绝对定位
+    </div>
+  </div>
+
+  <div class="pfix">
+    <div class="b">
+      测试fixed定位
+    </div>
+  </div>
+
+  <div class="box">
+    <div class="a">
+      测试绝对定位
+    </div>
+  </div>
+
+</body>
+
+</html>

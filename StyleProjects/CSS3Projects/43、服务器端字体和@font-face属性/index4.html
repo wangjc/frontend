@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>在页面上显示服务器端的字体</title>
+    <style>
+        @font-face {
+            font-family: webfont;
+            src: url(qtgg.otf);
+        }
+        @font-face {
+            font-family: webfont;
+            font-style: italic;
+            src: url(jpzk.otf);
+        }
+
+        .webft1{
+            font-family: webfont;
+        }
+        .webft2{
+            font-family: webfont;
+            font-style: italic;
+        }
+        @font-face{
+            font-family:myfont;
+            src:local('Arial');
+        }
+        @font-face{
+            font-family:myfont;
+            font-style: oblique;
+            src:local('Tekton pro');
+        }
+        .locft1{
+            font-family: myfont;
+            /*font-variant: small-caps;*/
+        }
+        .locft2{
+            font-family: myfont;
+            /*font-weight: lighter;*/
+            /*font-size: 10px;*/
+           font-style: oblique;
+        }
+      
+  </style>
+</head>
+<body>
+	<p class="webft1">web字体显示效果</p>
+	<p class="webft2">web字体显示效果---带有斜体</p>
+	
+	<p class="locft1">local字体显示效果</p>
+	<p class="locft2">local字体显示效果---带有斜体</p>
+
+</body>
+</html>

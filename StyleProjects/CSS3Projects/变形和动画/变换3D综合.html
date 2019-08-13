@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+  <meta charset="utf-8" />
+  <title>2D transform_CSS参考手册_web前端开发参考手册系列</title>
+  <meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com, www.doyoe.com" />
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      margin: 100px auto;
+      border: 1px solid black;
+      transform-style: preserve-3d;
+      transform: perspective(600px) rotateX(60deg) rotateZ(-20deg)
+    }
+
+    .child {
+      height: 100%;
+      width: 100%;
+      background: yellow;
+      transition: 1s all ease;
+      transform-style: preserve-3d;
+      transform: translateZ(0px)
+    }
+
+    .child:active {
+      transform: translateZ(100px)
+    }
+
+    .grandChild {
+      height: 100%;
+      width: 50%;
+      background: green;
+      transition: 1s all ease;
+      transform: translateZ(0px)
+    }
+
+    .grandChild:active {
+      transform: translateZ(50px)
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="child">
+      <div class="grandChild">
+        综合变换：rotateX|Z+translateZ
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

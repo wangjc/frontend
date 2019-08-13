@@ -1,0 +1,39 @@
+
+//.average(@x, @y) {
+//@average: ((@x + @y) / 2);
+//}
+//
+//div {
+//.average(16px, 50px); // "call" the mixin
+//padding: @average;    // use its "return" value
+//}
+//
+//.mixin() {
+//@size: in-mixin; 
+//@definedOnlyInMixin: in-mixin;
+//}
+//
+//.class {
+//margin: @size @definedOnlyInMixin;
+//.mixin(); 
+//}
+//
+//@size: globaly-defined-value; // 调用者父级作用域 - 不受保护
+//
+//定义在mixin中的mixin同样可以作为返回值：
+
+.unlock(@value) { // 外层的 mixin
+  .doSomething() { // 被嵌套的 mixin
+    declaration: @value;
+  }
+}
+
+#namespace {
+  .unlock(5); // unlock doSomething mixin
+  .doSomething(); //嵌套混入被复制到这里，并可用
+}
+//结果:
+
+//#namespace {
+//declaration: 5;
+//}
